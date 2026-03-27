@@ -519,7 +519,7 @@ function PreviewCanvas({pcell,polygon,pitch,coordX,coordY,adc,adr,onUpdatePolygo
       if(o.type==="polygon"){
         ctx.beginPath();o.pts.forEach(({x,y},i)=>{const{cx,cy}=toC(x,y);i===0?ctx.moveTo(cx,cy):ctx.lineTo(cx,cy);});ctx.closePath();ctx.fill();ctx.stroke();
       } else {
-        const{cx,cy}=toC(o.ox,o.oy+o.h);ctx.fillRect(cx,cy,o.w*sc,-o.h*sc);ctx.strokeRect(cx,cy,o.w*sc,-o.h*sc);
+        const{cx,cy}=toC(o.ox,o.oy+o.h);ctx.fillRect(cx,cy,o.w*sc,o.h*sc);ctx.strokeRect(cx,cy,o.w*sc,o.h*sc);
       }
     });
     // Coord dot (small, subtle)
