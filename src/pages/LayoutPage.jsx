@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import ProductTab     from "../tabs/layout/ProductTab";
 import DistrictTab    from "../tabs/layout/DistrictTab";
 import PlaceholderTab from "../tabs/layout/PlaceholderTab";
+import ParameterTab   from "../tabs/layout/ParameterTab";
 
 // ── Mock data ─────────────────────────────────────────────────────────────
 export const productDB = [
@@ -221,8 +222,9 @@ function TabWidget({cfg,onChange,selProd,onProductSelect}) {
   const renderBody=()=>{
     switch(activeKey){
       case "product":  return <ProductTab  cfg={cfg} onChange={onChange} selProd={selProd} onProductSelect={onProductSelect}/>;
-      case "district": return <DistrictTab cfg={cfg} onChange={onChange}/>;
-      default:         return <PlaceholderTab label={TABS.find(t=>t.key===activeKey)?.label||activeKey}/>;
+      case "district":   return <DistrictTab  cfg={cfg} onChange={onChange}/>;
+      case "parameter":  return <ParameterTab cfg={cfg} onChange={onChange} selProd={selProd}/>;
+      default:           return <PlaceholderTab label={TABS.find(t=>t.key===activeKey)?.label||activeKey}/>;
     }
   };
 
